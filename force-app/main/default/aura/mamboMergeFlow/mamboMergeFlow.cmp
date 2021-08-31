@@ -1,0 +1,25 @@
+<aura:component access="global" controller="LightningController" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="ids" type="String[]" access="global"  />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="debug" type="Boolean" default="true" />
+    <aura:attribute name="templateId" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="sObjectName" type="String" default="Case" />
+    <aura:attribute name="mergeData" type="Object" />
+    <aura:attribute name="mergeOnLoad" type="Boolean" default="true" />
+    <aura:attribute name="config" type="Object" />
+    <aura:attribute name="isSuccess" type="Boolean" default="false" />
+    <lightning:card>
+        <aura:set attribute="actions">
+            <lightning:button label="Back"/>
+        </aura:set>
+    </lightning:card>
+    <aura:if isTrue="{!and(v.templateId!=null, v.recordId!=null)}">
+        <div style="display:none;">
+    <c:mamboMerge debug="{!v.debug}" recordId="{!v.recordId}" objectApiName="{!v.sObjectName}" config="{!v.config}"
+      mergeOnLoad="{!v.mergeOnLoad}" mergeData="{!v.mergeData}" onmerge="{!c.handleOnMerge}" templateId="{!v.templateId}">
+    </c:mamboMerge>
+            </div>
+</aura:if>
+
+</aura:component>
