@@ -1,2 +1,4 @@
 # case-listview-using-flow-recipe
-Sample Salesforce Metadata for launching a bulk Mambo Merge from a Case List View using Flow
+This sample project is designed to be referenced by a Salesforce developer familiar with VS Code, sfdx, and Mambo Merge. Use at your own risk.
+
+This sample project contains the Salesforce metadata needed to configure Mambo Merge to create one long document looping through multiple Cases and save that document on an Account.
